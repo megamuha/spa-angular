@@ -1,0 +1,61 @@
+import {MenuItem} from '../spa/services/menu.service';
+
+export const AppMenuItems: Array<MenuItem> = [
+    {text: 'Cars',
+icon: '/assets/imgs/car.png',
+route: null,
+submenu:
+[
+    {text: 'Select',
+icon: '/assets/imgs/car.png',
+route: null,
+submenu: [
+     {text: 'Ferrary',
+    icon: '/assets/imgs/car.png',
+    route: '/authenticated/car-detail/Ferrary',
+    submenu: null},
+    {text: 'Bugatti',
+    icon: '/assets/imgs/car.png',
+    route: '/authenticated/car-detail/Bugatti',
+    submenu: null},
+    {text: 'Lamborghini',
+    icon: '/assets/imgs/car.png',
+    route: '/authenticated/car-detail/Lamborghini',
+    submenu: null},
+    {text: 'Mazeratti',
+    icon: '/assets/imgs/car.png',
+    route: '/authenticated/car-detail/Mazeratti',
+    submenu: null},
+]},
+{text: 'Price top',
+icon: '/assets/imgs/car.png',
+route: '/authenticated/car-list/1',
+submenu: null},
+{text: 'Top 3',
+icon: '/assets/imgs/car.png',
+route: '/authenticated/car-list/3',
+submenu: null},
+{text: 'Top 5',
+icon: '/assets/imgs/car.png',
+route: '/authenticated/car-list/5',
+submenu: null}
+]
+},
+{text: 'Maintenance',
+icon: '/assets/imgs/settings.png',
+route: null,
+submenu: [
+    {text: 'Car maint',
+icon: '/assets/imgs/settings.png',
+route: '/authenticated/car-maint',
+submenu: null},
+{text: 'Settings',
+icon: '/assets/imgs/settings.png',
+route: '/authenticated/settings',
+submenu: null}
+]},
+{text: 'Home',
+icon: '/assets/imgs/home.png',
+route: '/authenticated/home',
+submenu: null},
+];

@@ -1,0 +1,35 @@
+<h3>
+    <div [ngSwitch]="operation">
+        <span *ngSwitchCase="'details'">Просмотр авто</span>
+        <span *ngSwitchCase="'create'">Добавление</span>
+        <span *ngSwitchCase="'edit'">Редактирование</span>
+    </div>
+</h3>
+<div>
+    <!--(ngSubmit)="onSubmit()"-->
+    <form  [formGroup]='form'>
+        <div *ngFor="let field of vmDefinition">
+            <spa-dynamic-field [field]='field' [form]='form' [operation]='operation' [submitted]='submitted'></spa-dynamic-field>
+        </div>
+        <div *ngIf="errorMessage" class='alert alert-danger'>
+            {{errorMessage}}
+        </div>
+        <div *ngIf="status != 'waiting'">
+            <div *ngIf="operation === 'details'">
+                <button type="button" class="btn btn-primary" (click)='onBack()'>Назад</button>
+                <button type="button" class="btn btn-secondary" (click)='onEdit()'>Редактировать</button>
+            </div>
+            <div *ngIf="operation === 'edit'">
+                <button type="button" class="btn btn-primary" (click)='onCancel()'>Отмена</button>
+                <button type="button" class="btn btn-secondary" (click)='onSave()'>Сохранить</button>
+            </div>
+            <div *ngIf="operation === 'create'">
+                <button type="button" class="btn btn-primary" (click)='onBack()'>Назад</button>
+                <button type="button" class="btn btn-secondary" (click)='onCreate()'>Создать</button>
+            </div>
+        </div>
+        <div *ngIf="status === 'waiting'">
+            Ожидайте..
+        </div>
+    </form>
+</div>

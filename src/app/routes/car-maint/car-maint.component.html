@@ -1,0 +1,30 @@
+<h3>Car maintenence</h3>
+<button class="btn btn-primary" (click)='createCar()'>Добавить машину</button>
+<table class="table table-hover table-striped">
+    <tr class='row'>
+        <th class='col-lg-3 header col-sm-3 col-3'>Марка авто</th>
+        <th class='col-lg-3 header col-sm-3 col-3'>Модель</th>
+        <th class='col-lg-2 header col-sm-2 col-3'>Цена (USD)</th>
+        <th class='col-lg-4 header col-sm-4 col-3'></th>
+    </tr>
+    <tr class='row' *ngFor="let item of CarList">
+        <td class='col-lg-3 col-sm-3 col-3'>{{item.name}}</td>
+        <td class='col-lg-3 col-sm-3 col-3'>{{item.model}}</td>
+        <td class='col-lg-2 col-sm-2 col-3'>{{item.price | currency: 'USD'}}</td>
+        <td class='col-lg-4 col-sm-4 col-3' *ngIf="item.id != deleteId">
+            <button class="btn choice btn-sm btn-primary" id="info" (click)='showCarDetail(item.id)'>Инфо</button>
+            <button class="btn choice  btn-warning" id="rewrite" (click)='editCar(item.id)'>Редактировать</button>
+            <button class="btn choice  btn-danger"  id="delete" (click)='deleteCarQuestion(item.id)'>Удалить</button>
+        </td>
+        <td class='col-lg-4 col-sm-4 col-3' *ngIf="item.id === deleteId && !isDeleting">
+            <button class="btn btn-sm choiced-delete btn-light" (click)='cancelDelete()'>Отмена</button>
+            <button class="btn btn-sm choiced-delete btn-danger" (click)='deleteCar(item.id)'>Удалить</button> Удалить безвозвратно?
+            <p *ngIf="deleteError">{{deleteError}}</p>
+        </td>
+        <td class='col-lg-4 col-sm-4 col-3' *ngIf="item.id === deleteId && isDeleting">
+            Удаление..
+            <img src="/assets/imgs/deleteLoader.gif">
+        </td>
+        <hr>
+    </tr>
+</table>
