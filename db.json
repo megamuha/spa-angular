@@ -1,34 +1,48 @@
 {
   "cars": [
     {
-      "id": "Audi",
+      "id": "1",
       "name": "Audi",
       "model": "A6",
       "price": 3500
     },
     {
-      "id": "BMW",
+      "id": "2",
       "name": "BMW",
       "model": "X5",
       "price": 7300
     },
     {
-      "id": "Mazda",
+      "id": "3",
       "name": "Mazda",
       "model": "636",
       "price": 5200
     },
     {
-      "id": "DhA-ZPM",
+      "id": "4",
       "name": "Subaru",
       "model": "Forester",
       "price": 7600
     },
     {
-      "id": "5sst7Kx",
+      "id": "5",
       "name": "Volkswagen",
       "model": "Jetta",
       "price": 9800
+    }
+  ],
+  "users": [
+    {
+      "name": "Alex",
+      "email": "alex@gmail.com",
+      "password": "12345",
+      "id": 1
+    },
+    {
+      "name": "Serhey",
+      "email": "patokha@gmail.com",
+      "password": "12345",
+      "id": 2
     }
   ]
 }
