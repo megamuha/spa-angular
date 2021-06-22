@@ -18,6 +18,7 @@ import { AuthGuard } from './services/auth-gard';
 import { AppDataService } from './services/app-data.service';
 import { CarPanelComponent } from './panels/car-panel/car-panel.component';
 import { ImagePanelComponent } from './panels/image-panel/image-panel.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -29,11 +30,11 @@ import { ImagePanelComponent } from './panels/image-panel/image-panel.component'
     CarMaintComponent,
     AuthenticatedComponent,
     CarPanelComponent,
-    ImagePanelComponent
+    ImagePanelComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule, SpaModule, RouterModule.forRoot(appRoutes)
+    AppRoutingModule, SpaModule, RouterModule.forRoot(appRoutes), HttpClientModule
   ],
   providers: [UserService,{
     provide: UserApi, useExisting: UserService
