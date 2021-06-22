@@ -10,10 +10,12 @@ import { UserApi } from '../users/user-api';
 export class IconBarComponent implements OnInit {
   showLoader?: boolean;
   @Input() showIcons: any;
+  userInfo: string;
   constructor(public spaConfigService: SpaConfigService, public userApi: UserApi) { }
 
   ngOnInit() {
     this.showLoader = false;
+    this.userInfo = JSON.parse(localStorage.getItem('user') || '').name;
   }
   signOut() {
     this.showLoader = true;

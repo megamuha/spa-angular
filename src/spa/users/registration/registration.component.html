@@ -1,7 +1,7 @@
 <div class="register-form" @visibility>
     <h4>Регистрация</h4>
     <!--(ngSubmit)="onSubmit(registerForm)"-->
-    <form novalidate  #registerForm='ngForm'>
+    <form novalidate (ngSubmit)="onSubmit(registerForm)" #registerForm='ngForm'>
         <div class='form-group'>
             <input type='text' autocomplete="off" name='name' required placeholder="Имя пользователя" ngModel #name='ngModel' class='form-control'>
             <div class="alert alert-danger" [hidden]='name.valid || name.pristine'>Введите ваше имя</div>
