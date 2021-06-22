@@ -1,13 +1,12 @@
 <h3>
     <div [ngSwitch]="operation">
-        <span *ngSwitchCase="'details'">Просмотр авто</span>
-        <span *ngSwitchCase="'create'">Добавление</span>
-        <span *ngSwitchCase="'edit'">Редактирование</span>
+        <span *ngSwitchCase="'details'">Reading panel</span>
+        <span *ngSwitchCase="'create'">Adding panel</span>
+        <span *ngSwitchCase="'edit'">Editing panel</span>
     </div>
 </h3>
 <div>
-    <!--(ngSubmit)="onSubmit()"-->
-    <form  [formGroup]='form'>
+    <form (ngSubmit)="onSubmit()" [formGroup]='form'>
         <div *ngFor="let field of vmDefinition">
             <spa-dynamic-field [field]='field' [form]='form' [operation]='operation' [submitted]='submitted'></spa-dynamic-field>
         </div>
@@ -16,20 +15,20 @@
         </div>
         <div *ngIf="status != 'waiting'">
             <div *ngIf="operation === 'details'">
-                <button type="button" class="btn btn-primary" (click)='onBack()'>Назад</button>
-                <button type="button" class="btn btn-secondary" (click)='onEdit()'>Редактировать</button>
+                <button type="button" class="btn btn-primary" (click)='onBack()'>Go Back</button>
+                <button type="button" class="btn btn-secondary" (click)='onEdit()'>Edit</button>
             </div>
             <div *ngIf="operation === 'edit'">
-                <button type="button" class="btn btn-primary" (click)='onCancel()'>Отмена</button>
-                <button type="button" class="btn btn-secondary" (click)='onSave()'>Сохранить</button>
+                <button type="button" class="btn btn-primary" (click)='onCancel()'>Cancel</button>
+                <button type="button" class="btn btn-secondary" (click)='onSave()'>Save</button>
             </div>
             <div *ngIf="operation === 'create'">
-                <button type="button" class="btn btn-primary" (click)='onBack()'>Назад</button>
-                <button type="button" class="btn btn-secondary" (click)='onCreate()'>Создать</button>
+                <button type="button" class="btn btn-primary" (click)='onBack()'>Go Back</button>
+                <button type="button" class="btn btn-secondary" (click)='onCreate()'>Create</button>
             </div>
         </div>
         <div *ngIf="status === 'waiting'">
-            Ожидайте..
+            Waiting ...
         </div>
     </form>
 </div>

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { FieldInput } from '../field-interface';
 
@@ -8,15 +8,14 @@ import { FieldInput } from '../field-interface';
   styleUrls: ['./dynamic-field.component.css']
 })
 export class DynamicFieldComponent implements OnInit {
-
   @Input() field!: FieldInput;
   @Input() form!: FormGroup;
   @Input() operation?: string;
-  @Input() submitted?: boolean; 
-
+  @Input() submitted?: boolean;
   get isValid() {
-    return this.form.controls[this.field.key].valid;
+    return this.form?.controls[this.field.key].valid;
   }
+
   constructor() { }
 
   ngOnInit(): void {

@@ -1,6 +1,6 @@
-import { Component, OnInit, EventEmitter, Input, OnChanges, SimpleChanges, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 import { Location } from '@angular/common';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FieldInput } from '../field-interface';
 
@@ -12,8 +12,8 @@ import { FieldInput } from '../field-interface';
 export class DynamicFormComponent implements OnInit, OnChanges {
   @Input() vm: any;
   @Input() vmDefinition!: Array<FieldInput>;
-  @Input() operation?: string;
-  @Input() errorMessage?: string | null;
+  @Input() operation!: string;
+  @Input() errorMessage?: string;
   @Output() update: EventEmitter<any> = new EventEmitter();
   @Output() create: EventEmitter<any> = new EventEmitter();
 
@@ -21,18 +21,24 @@ export class DynamicFormComponent implements OnInit, OnChanges {
   status?: string;
   submitted = false;
   vmCopy: any;
-  constructor(public route: ActivatedRoute, public router: Router, public location: Location) { }
+
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router,
+    private location: Location
+  ) {
+  }
 
   clearForm() {
     const group : any= {};
     this.vmCopy = Object.assign({}, this.vm);
     this.vmDefinition.forEach(field => {
       group[field.key] = field.required ?
-      new FormControl(this.vmCopy[field.key], Validators.required) :
-      new FormControl(this.vmCopy[field.key]);
+        new FormControl(this.vmCopy[field.key], Validators.required) :
+        new FormControl(this.vmCopy[field.key])
     });
     this.form = new FormGroup(group);
-}
+  }
 
   ngOnInit(): void {
     this.clearForm();
@@ -47,28 +53,36 @@ export class DynamicFormComponent implements OnInit, OnChanges {
       this.status = '';
     }
   }
+
   onBack() {
-    this.errorMessage = null;
+    this.errorMessage = undefined;
     this.location.back();
   }
-onEdit() {
-  this.router.navigate(['../', 'edit'], {relativeTo: this.route});
-}
-onCancel() {
-  this.onBack();
-}
-onSave() {
-  this.submitted = true;
-  if (this.form.valid) {
-    this.status = 'waiting';
-    this.update.emit(this.form.value);
+
+  onEdit() {
+    this.router.navigate(['../', 'edit'], { relativeTo: this.route });
   }
-}
-onCreate() {
-  this.submitted = true;
-  if (this.form.valid) {
-    this.status = 'waiting';
-    this.create.emit(this.form.value);
+
+  onCancel() {
+    this.onBack();
   }
-}
+
+  onSave() {
+    this.submitted = true;
+    if (this.form.valid) {
+      this.status = 'waiting';
+      this.update.emit(this.form.value);
+    }
+  }
+
+  onCreate() {
+    this.submitted = true;
+    if (this.form.valid) {
+      this.status = 'waiting';
+      this.create.emit(this.form.value);
+    }
+  }
+
+  onSubmit() {}
+
 }
