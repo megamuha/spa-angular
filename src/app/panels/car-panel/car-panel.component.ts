@@ -9,7 +9,7 @@ import { visibility } from 'src/spa/services/animations';
   animations: [visibility]
 })
 export class CarPanelComponent implements OnInit {
-  @Input() car: Car;
+  @Input() car!: Car;
   @Input() index = 1;
 
   constructor() { }

@@ -30,7 +30,7 @@ export class DynamicFormComponent implements OnInit, OnChanges {
   }
 
   clearForm() {
-    const group : any= {};
+    const group : any = {} ;
     this.vmCopy = Object.assign({}, this.vm);
     this.vmDefinition.forEach(field => {
       group[field.key] = field.required ?

@@ -39,10 +39,22 @@
       "id": 1
     },
     {
-      "name": "serg",
-      "email": "ser@gmail.com",
-      "password": "12345",
+      "name": "frdf",
+      "email": "frdf@gmail.com",
+      "password": "12323",
       "id": 2
+    },
+    {
+      "name": "dens",
+      "email": "dens@gmail.com",
+      "password": "12345",
+      "id": 3
+    },
+    {
+      "name": "qqq",
+      "email": "qqq",
+      "password": "qqq",
+      "id": 4
     }
   ]
 }

@@ -19,6 +19,7 @@ import { AppDataService } from './services/app-data.service';
 import { CarPanelComponent } from './panels/car-panel/car-panel.component';
 import { ImagePanelComponent } from './panels/image-panel/image-panel.component';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -34,11 +35,19 @@ import { HttpClientModule } from '@angular/common/http';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule, SpaModule, RouterModule.forRoot(appRoutes), HttpClientModule
+    RouterModule,
+    SpaModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+    RouterModule.forRoot(appRoutes),
   ],
-  providers: [UserService,{
-    provide: UserApi, useExisting: UserService
-  }, AuthGuard, AppDataService],
+  providers: [
+    UserService,
+    { provide: UserApi, useExisting: UserService },
+    AuthGuard,
+    AppDataService,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

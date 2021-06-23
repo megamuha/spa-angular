@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
-import { AppDataService } from 'src/app/services/app-data.service';
-import { Car } from 'src/app/services/car-interface';
+import { Car } from '../../services/car-interface';
+import { AppDataService } from '../../services/app-data.service';
+import { ActivatedRoute } from '../../../../node_modules/@angular/router';
+import { Params } from '@angular/router';
 
 @Component({
   selector: 'app-car-list',
@@ -9,12 +10,12 @@ import { Car } from 'src/app/services/car-interface';
   styleUrls: ['./car-list.component.css']
 })
 export class CarListComponent implements OnInit {
-  allCars: Array<Car>;
-  cars: Array<Car>;
+  allCars!: Array<Car>;
+  cars?: Array<Car>;
   count = 0;
-  constructor(public appDataService: AppDataService, public route: ActivatedRoute) { }
+  constructor(private appDataService: AppDataService, private route: ActivatedRoute) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.appDataService.getCars().subscribe(allItems => {
       this.allCars = allItems;
       this.count = +this.route.snapshot.params['count'];
@@ -25,14 +26,11 @@ export class CarListComponent implements OnInit {
       });
     });
   }
-
   updateList() {
     const AllCarsCopy = this.allCars.slice().sort(this.compareSort);
     this.cars = (this.count > 0) ? AllCarsCopy.slice(0, this.count) : this.allCars;
   }
-
   compareSort(carA: any, carB: any) {
-return carB.price - carA.price;
+    return carB.price - carA.price;
   }
-
 }
