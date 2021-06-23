@@ -3,7 +3,7 @@
         <img class='top-img' [src]="icon.imageFile" [alt]="icon.alt"></a>
 </div>
 <div [ngClass]='{"forSmall" : !showIcons}' *ngIf="spaConfigService.showUserControls">
-    <span>{{userInfo}}</span>
+    <span>Hello, {{userInfo}}</span>
     <button *ngIf="!showLoader" class="btn btn-sm btn-warning" (click)='signOut()'>Sign out</button>
     <img src='/assets/imgs/loaderOut.gif' *ngIf="showLoader">
 </div>

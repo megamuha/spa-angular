@@ -36,25 +36,19 @@
       "name": "denuis",
       "email": "denis@gmail.com",
       "password": "123",
-      "id": 1
+      "id": 1,
+      "permissions": [
+        1, 2, 3
+      ]
     },
     {
       "name": "frdf",
       "email": "frdf@gmail.com",
       "password": "12323",
-      "id": 2
-    },
-    {
-      "name": "dens",
-      "email": "dens@gmail.com",
-      "password": "12345",
-      "id": 3
-    },
-    {
-      "name": "qqq",
-      "email": "qqq",
-      "password": "qqq",
-      "id": 4
+      "id": 2,
+      "permissions": [
+        1
+      ]
     }
   ]
 }

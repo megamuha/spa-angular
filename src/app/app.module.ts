@@ -20,6 +20,7 @@ import { CarPanelComponent } from './panels/car-panel/car-panel.component';
 import { ImagePanelComponent } from './panels/image-panel/image-panel.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AuthorizationUserService } from 'src/spa/users/authorization-user-service';
 
 @NgModule({
   declarations: [
@@ -47,6 +48,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     { provide: UserApi, useExisting: UserService },
     AuthGuard,
     AppDataService,
+    AuthorizationUserService
   ],
   bootstrap: [AppComponent]
 })
