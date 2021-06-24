@@ -1,10 +1,10 @@
 {
   "cars": [
     {
-      "id": "2",
-      "name": "BMW",
-      "model": "X5",
-      "price": 7300
+      "id": 70,
+      "name": "Honda",
+      "model": "Accord",
+      "price": 9500
     },
     {
       "id": "3",
@@ -17,24 +17,6 @@
       "name": "Subaru",
       "model": "Forester",
       "price": 7600
-    },
-    {
-      "id": "5",
-      "name": "Volkswagen",
-      "model": "Jetta",
-      "price": 9800
-    },
-    {
-      "id": 79,
-      "name": "Audi",
-      "model": "RS7",
-      "price": 10200
-    },
-    {
-      "id": 70,
-      "name": "Honda",
-      "model": "Accord",
-      "price": 9500
     }
   ],
   "users": [
@@ -45,12 +27,7 @@
       "id": 1,
       "role": "admin",
       "cars": [
-        {
-          "id": 70,
-          "name": "Honda",
-          "model": "Accord",
-          "price": 9500
-        }
+        {}
       ]
     },
     {

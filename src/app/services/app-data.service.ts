@@ -4,11 +4,13 @@ import { delay, map } from "rxjs/operators";
 import { Car } from "./car-interface";
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { AuthorizationUserService } from "src/spa/users/authorization-user-service";
+import { User } from "src/spa/services/user.interface";
 
 @Injectable({ providedIn: 'root' })
 export class AppDataService {
   private CarsCollection: Array<Car> = [];
   private url = 'http://localhost:3000/cars';
+  private userUrl = 'http://localhost:3000/users';
 
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -38,5 +40,11 @@ export class AppDataService {
   updateCar(CarForUpdating: Car): Observable<any> {
     const url = `${this.url}/${CarForUpdating.id}`;
     return this.http.put<Car>(url, CarForUpdating);
+  }
+
+  buyCar(user: User, id: number, myCar: Car){
+   const url = `${this.userUrl}/${user.id}`;
+   user.cars.push(myCar);
+   return this.http.put<User>(url, user);
   }
 }

@@ -18,7 +18,6 @@ export class AppData2Service {
 
   constructor(private http: HttpClient, private authorizationUserService: AuthorizationUserService) {  }
 
-
   getUser(): Observable<User> {
       let idUser = this.authorizationUserService._id;
     const url = `${this.userUrl}/${idUser}`;
