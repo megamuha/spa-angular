@@ -20,7 +20,7 @@ export const appRoutes: Routes = [
          children: [
           { path: '', redirectTo: 'home', pathMatch: 'full' },
           { path: 'home', component: AppHomeComponent },
-          { path: 'settings', component: SettingsComponent },
+          { path: 'yourCars', component: SettingsComponent },
           { path: 'car-list/:count', component: CarListComponent },
           { path: 'car-detail/:id/:operation', component: CarDetailComponent },
           { path: 'car-maint', component: CarMaintComponent }

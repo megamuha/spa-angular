@@ -32,6 +32,12 @@ export class SignInComponent implements OnInit {
         var currentUser: User = users.find((item: User) => item.email === signInForm.value.email && item.password === signInForm.value.password);
         
         this.authorizationUserService.setAuthorizedUser(currentUser);
+        this.authorizationUserService.getUserId();
+        this.authorizationUserService.getUserName();
+        this.authorizationUserService.getUserRole();
+        console.log(this.authorizationUserService.name);
+        console.log(this.authorizationUserService._id);
+        console.log(this.authorizationUserService.role);
 
         if (currentUser) { 
           this.router.navigate(['/authenticated']);

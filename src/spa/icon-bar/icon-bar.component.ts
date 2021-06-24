@@ -20,7 +20,7 @@ export class IconBarComponent implements OnInit {
 
   ngOnInit() {
     this.showLoader = false;
-    this.userInfo = this.authorizationUserService.getUserName();
+    this.userInfo = this.authorizationUserService.name;
   }
   signOut() {
     this.showLoader = true;

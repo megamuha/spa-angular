@@ -3,6 +3,7 @@ import { Observable, of } from "rxjs";
 import { delay, map } from "rxjs/operators";
 import { Car } from "./car-interface";
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { AuthorizationUserService } from "src/spa/users/authorization-user-service";
 
 @Injectable({ providedIn: 'root' })
 export class AppDataService {
@@ -13,7 +14,7 @@ export class AppDataService {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
 
-  constructor(private http: HttpClient) {  }
+  constructor(private http: HttpClient, private authorizationUserService: AuthorizationUserService) {  }
 
   getCars(): Observable<Car[]> {
     return this.http.get<Car[]>(this.url);
@@ -30,13 +31,7 @@ export class AppDataService {
   }
 
   createCar(newCar: Car): Observable<any> {
-    let id = 0;
-    this.CarsCollection.forEach(item => {
-      if (item.id >= id) {
-        id = item.id + 1;
-      }
-    });
-    newCar.id = id;
+    newCar.id = Math.floor(Math.random() * 500) + 1;
     return this.http.post<Car>(this.url, newCar);
   }
 

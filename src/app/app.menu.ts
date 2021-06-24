@@ -49,9 +49,9 @@ submenu: [
 icon: '/assets/imgs/settings.png',
 route: '/authenticated/car-maint',
 submenu: null},
-{text: 'Settings',
+{text: 'Your cars',
 icon: '/assets/imgs/settings.png',
-route: '/authenticated/settings',
+route: '/authenticated/yourCars',
 submenu: null}
 ]},
 {text: 'Home',

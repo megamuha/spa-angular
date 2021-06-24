@@ -1,0 +1,39 @@
+:host {
+    display: block;
+}
+
+.btn{
+    color: black;
+    font-size: medium;
+}
+
+table {
+    margin-top: 10px;
+}
+
+.btn-sm {
+    width: 60px;
+    margin-left: 15px;
+}
+
+.choice{
+    margin-right: 10px;
+    border-style: ridge;
+    border-width: 2px;
+}
+
+.choiced-delete{
+    border-style: ridge;
+    border-width: 2px;
+    width: auto;
+}
+
+.header{
+    margin-bottom: 15px;
+}
+
+
+
+hr{
+    margin-top: 5px;
+}

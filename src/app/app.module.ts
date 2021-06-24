@@ -16,6 +16,7 @@ import { UserService } from './services/user.service';
 import { UserApi } from 'src/spa/users/user-api';
 import { AuthGuard } from './services/auth-gard';
 import { AppDataService } from './services/app-data.service';
+import { AppData2Service } from './services/app-data2.service';
 import { CarPanelComponent } from './panels/car-panel/car-panel.component';
 import { ImagePanelComponent } from './panels/image-panel/image-panel.component';
 import { HttpClientModule } from '@angular/common/http';
@@ -48,7 +49,8 @@ import { AuthorizationUserService } from 'src/spa/users/authorization-user-servi
     { provide: UserApi, useExisting: UserService },
     AuthGuard,
     AppDataService,
-    AuthorizationUserService
+    AuthorizationUserService,
+    AppData2Service
   ],
   bootstrap: [AppComponent]
 })

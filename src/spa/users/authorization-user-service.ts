@@ -4,17 +4,24 @@ import { User } from "../services/user.interface";
 @Injectable()
 export class AuthorizationUserService {
 
-    private user: User;
+    public user: User;
+    public role: string;
+    public name: string;
+    public _id : number;
 
     public setAuthorizedUser(user: User) {
         this.user = user;
     }
 
-    public getUserRole(): string {
-        return this.user.role;
+    public getUserRole(){
+         this.role = this.user.role;
     }
 
-    public getUserName(): string {
-        return this.user.name;
+    public getUserName(){
+        this.name = this.user.name;
+    }
+
+    public getUserId(){
+        this._id = this.user.id;
     }
 }

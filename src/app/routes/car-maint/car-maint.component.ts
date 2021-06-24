@@ -14,25 +14,20 @@ export class CarMaintComponent implements OnInit {
   deleteError?: string | null;
   deleteId?: number | null;
   isDeleting = false;
+  public isAdmin: boolean = false;
   constructor(private router: Router, private appDataService: AppDataService, private authorizationUserService: AuthorizationUserService) {
     appDataService.getCars().subscribe((data) => {this.CarList = data; });
    }
 
    ngOnInit(){
-     if(this.authorizationUserService.getUserRole() != 'admin'){
-    window.addEventListener('mousemove', () => {
-      const demoClasses = document.querySelectorAll('.permisson');
-
-      demoClasses.forEach(element => {
-        element.setAttribute("disabled", "");
-      });
-    })
-
+     if(this.authorizationUserService.role === 'admin'){
+       this.isAdmin = true
+    }
   }
 
+  buyCar(id: number){
+   
   }
-
-  
  
   createCar() {
     this.router.navigate(['/authenticated/car-detail', 0, 'create']);

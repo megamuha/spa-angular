@@ -12,10 +12,10 @@
         <td class='col-lg-3 col-sm-3 col-3'>{{item.model}}</td>
         <td class='col-lg-2 col-sm-2 col-3'>{{item.price | currency: 'USD'}}</td>
         <td class='col-lg-4 col-sm-4 col-3' *ngIf="item.id != deleteId" >
-            <button class="btn choice permissonBuy btn-warning"  id="buy" >Купить</button>
-            <button class="btn choice btn-sm btn-primary" id="info" (click)='showCarDetail(item.id)' >Инфо</button>
-            <button class="btn choice permisson btn-warning" id="rewrite" (click)='editCar(item.id)'>Редактировать</button>
-            <button class="btn choice permisson btn-danger"  id="delete" (click)='deleteCarQuestion(item.id)'>Удалить</button>
+            <button class="btn choice permissonBuy btn-warning"  id="buy" (click)='buyCar(item.id)' [disabled]="isAdmin">Купить</button>
+            <button class="btn choice btn-sm btn-primary" id="info" (click)='showCarDetail(item.id)'>Инфо</button>
+            <button class="btn choice permisson btn-warning" id="rewrite" (click)='editCar(item.id)' [disabled]="!isAdmin">Редактировать</button>
+            <button class="btn choice permisson btn-danger"  id="delete" (click)='deleteCarQuestion(item.id)' [disabled]="!isAdmin">Удалить</button>
             
         </td>
         <td class='col-lg-4 col-sm-4 col-3' *ngIf="item.id === deleteId && !isDeleting">
