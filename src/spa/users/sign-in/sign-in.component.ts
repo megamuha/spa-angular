@@ -16,7 +16,6 @@ import { UserApi } from '../user-api';
 export class SignInComponent implements OnInit {
   submitting = false;
   formError?: string;
-  currentName: string;
   
 
   constructor(private userApi: UserApi, private userService: UserService, private router: Router, private authorizationUserService: AuthorizationUserService ) { }
@@ -32,12 +31,9 @@ export class SignInComponent implements OnInit {
         var users = data;
         var currentUser: User = users.find((item: User) => item.email === signInForm.value.email && item.password === signInForm.value.password);
         
-        this.authorizationUserService.getAuthorizedUser(currentUser);
-        const permissions = this.authorizationUserService.getUserPermissions();
+        this.authorizationUserService.setAuthorizedUser(currentUser);
 
-        if (currentUser) {
-          var userName = currentUser.name;      
-          this.currentName = userName;  
+        if (currentUser) { 
           this.router.navigate(['/authenticated']);
 
         }        
@@ -45,7 +41,6 @@ export class SignInComponent implements OnInit {
           this.submitting = false;
           this.formError = "user not found";
         }
-        console.log(permissions);
       },
         // в случае ошибки
         (error) => {

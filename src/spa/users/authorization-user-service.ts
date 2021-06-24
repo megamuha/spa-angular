@@ -6,10 +6,15 @@ export class AuthorizationUserService {
 
     private user: User;
 
-    public getAuthorizedUser(user: User) {
+    public setAuthorizedUser(user: User) {
         this.user = user;
     }
-    public getUserPermissions(): string[] {
-        return this.user.permissions;
+
+    public getUserRole(): string {
+        return this.user.role;
+    }
+
+    public getUserName(): string {
+        return this.user.name;
     }
 }

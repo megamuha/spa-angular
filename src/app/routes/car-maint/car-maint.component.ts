@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Car } from 'src/app/services/car-interface';
 import { Router } from '@angular/router';
 import { AppDataService } from 'src/app/services/app-data.service';
+import { AuthorizationUserService } from 'src/spa/users/authorization-user-service';
 
 @Component({
   selector: 'app-car-maint',
@@ -13,12 +14,26 @@ export class CarMaintComponent implements OnInit {
   deleteError?: string | null;
   deleteId?: number | null;
   isDeleting = false;
-  constructor(private router: Router, private appDataService: AppDataService) {
+  constructor(private router: Router, private appDataService: AppDataService, private authorizationUserService: AuthorizationUserService) {
     appDataService.getCars().subscribe((data) => {this.CarList = data; });
    }
 
-  ngOnInit() {
+   ngOnInit(){
+     if(this.authorizationUserService.getUserRole() != 'admin'){
+    window.addEventListener('mousemove', () => {
+      const demoClasses = document.querySelectorAll('.permisson');
+
+      demoClasses.forEach(element => {
+        element.setAttribute("disabled", "");
+      });
+    })
+
   }
+
+  }
+
+  
+ 
   createCar() {
     this.router.navigate(['/authenticated/car-detail', 0, 'create']);
   }

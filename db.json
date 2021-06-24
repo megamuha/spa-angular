@@ -34,21 +34,17 @@
   "users": [
     {
       "name": "denuis",
-      "email": "denis@gmail.com",
+      "email": "123",
       "password": "123",
       "id": 1,
-      "permissions": [
-        1, 2, 3
-      ]
+      "role": "admin"
     },
     {
       "name": "frdf",
-      "email": "frdf@gmail.com",
-      "password": "12323",
+      "email": "321",
+      "password": "321",
       "id": 2,
-      "permissions": [
-        1
-      ]
+      "role": "user"
     }
   ]
 }
