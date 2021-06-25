@@ -5,7 +5,6 @@ import { User } from '../services/user.interface';
 import { UserApi } from '../users/user-api';
 import { SignInComponent } from '../users/sign-in/sign-in.component';
 import { isNgTemplate } from '@angular/compiler';
-import { AuthorizationUserService } from '../users/authorization-user-service';
 import { CookieService } from 'ngx-cookie-service';
 @Component({
   selector: 'icon-bar',
@@ -16,7 +15,7 @@ export class IconBarComponent implements OnInit {
   showLoader!: boolean;
   @Input() showIcons: any;
   userInfo!: string;
-  constructor(public spaConfigService: SpaConfigService, public userApi: UserApi, private authorizationUserService: AuthorizationUserService, private cookieService: CookieService) {
+  constructor(public spaConfigService: SpaConfigService, public userApi: UserApi, private cookieService: CookieService) {
 
    }
 

@@ -5,6 +5,7 @@ import { AppDataService } from 'src/app/services/app-data.service';
 import { AuthorizationUserService } from 'src/spa/users/authorization-user-service';
 import { AppData2Service } from 'src/app/services/app-data2.service';
 import { User } from 'src/spa/services/user.interface';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-settings',
@@ -18,15 +19,18 @@ export class SettingsComponent implements OnInit {
   deleteError?: string | null;
   deleteId?: number | null;
   isDeleting = false;
-  constructor(private router: Router, private appData2Service: AppData2Service, private authorizationUserService: AuthorizationUserService) {
-    // this.CarList = appData2Service.getCars();
+  public isAdmin: boolean = false;
+  constructor(private router: Router, private appData2Service: AppData2Service, private authorizationUserService: AuthorizationUserService, private cookieService: CookieService) {
     appData2Service.getUser().subscribe(data => {
       this.CarList = data.cars;
     })
    }
 
    ngOnInit(){
+    if(this.cookieService.get('role') === 'admin'){
+      this.isAdmin = true
   }
+}
 
 deleteCarQuestion(id: number) {
   this.deleteError = null;

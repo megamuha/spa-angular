@@ -23,7 +23,7 @@ export class RegistrationComponent implements OnInit {
   onSubmit(registerForm: NgForm) {
     this.userApi.signIn!(registerForm.value.email, registerForm.value.password).subscribe((data) => {
       var users = data;
-      var currentUser: User = users.find((item: User) => item.email === registerForm.value.email && item.password === registerForm.value.password);
+      var currentUser: User = users.find((item: User) => item.email === registerForm.value.email);
 
       if (currentUser) {
         this.formError = "Пользователь уже существует";

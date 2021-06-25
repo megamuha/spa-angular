@@ -43,7 +43,7 @@ export class SignInComponent implements OnInit {
         }        
         else {
           this.submitting = false;
-          this.formError = "user not found";
+          this.formError = "Пользователь не найден";
         }
       },
         (error) => {

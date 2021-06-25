@@ -1,4 +1,4 @@
-<h3>Мои машины</h3>
+<div [hidden]="isAdmin"><h3>Мои машины</h3>
 <table class="table table-hover table-striped" >
     <tr class='row'>
         <th class='col-lg-3 header col-sm-3 col-3'>Марка авто</th>
@@ -25,3 +25,7 @@
         <hr>
     </tr>
 </table>
+</div>
+<div [hidden]="!isAdmin">
+<h2>Вы админ, у вас нет машин!)</h2>
+</div>

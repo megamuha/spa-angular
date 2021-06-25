@@ -19,16 +19,16 @@
       "price": 9800
     },
     {
-      "id": 490,
-      "name": "Audi",
-      "model": "A6",
-      "price": 7800
-    },
-    {
       "id": 472,
       "name": "Ford",
       "model": "Fusion",
       "price": 8300
+    },
+    {
+      "id": 152,
+      "name": "Infinity",
+      "model": "FX35",
+      "price": 8900
     }
   ],
   "users": [
@@ -60,6 +60,22 @@
           "price": 5200
         }
       ]
+    },
+    {
+      "name": "denis",
+      "email": "denis@gmail.com",
+      "password": "denis",
+      "cars": [],
+      "role": "admin",
+      "id": 3
+    },
+    {
+      "name": "denis",
+      "email": "denis1@gmail.com",
+      "password": "denisss",
+      "cars": [],
+      "role": "user",
+      "id": 4
     }
   ]
 }
