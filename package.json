@@ -20,9 +20,11 @@
     "@angular/platform-browser": "~12.0.4",
     "@angular/platform-browser-dynamic": "~12.0.4",
     "@angular/router": "~12.0.4",
+    "angular2-cookie": "^1.2.6",
     "bootstrap": "^5.0.1",
     "http": "0.0.1-security",
     "http-module": "0.0.5",
+    "ngx-cookie-service": "^12.0.0",
     "rxjs": "~6.6.0",
     "tslib": "^2.1.0",
     "zone.js": "~0.11.4"

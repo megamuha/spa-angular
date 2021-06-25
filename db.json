@@ -10,7 +10,7 @@
       "id": 219,
       "name": "Tayota",
       "model": "RAV4",
-      "price": 10200
+      "price": 10300
     },
     {
       "id": 385,
@@ -19,16 +19,16 @@
       "price": 9800
     },
     {
-      "id": 419,
-      "name": "Ford",
-      "model": "Fusion",
-      "price": 10300
-    },
-    {
       "id": 490,
       "name": "Audi",
       "model": "A6",
       "price": 7800
+    },
+    {
+      "id": 472,
+      "name": "Ford",
+      "model": "Fusion",
+      "price": 8300
     }
   ],
   "users": [

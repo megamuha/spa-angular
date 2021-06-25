@@ -23,6 +23,7 @@ import { SignInComponent } from './users/sign-in/sign-in.component';
 import { DynamicFormComponent } from './dynamicForms/dynamic-form/dynamic-form.component';
 import { DynamicFieldComponent } from './dynamicForms/dynamic-field/dynamic-field.component';
 import { PanelComponent } from './panel/panel.component';
+import { CookieService } from 'ngx-cookie-service';
 
 
 @NgModule({
@@ -61,7 +62,8 @@ import { PanelComponent } from './panel/panel.component';
   providers: [
     SpaConfigService,
     ScreenService,
-    MenuService
+    MenuService,
+    CookieService
   ]
 })
 

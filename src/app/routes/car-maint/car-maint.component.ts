@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { AppDataService } from 'src/app/services/app-data.service';
 import { AuthorizationUserService } from 'src/spa/users/authorization-user-service';
 import { User } from 'src/spa/services/user.interface';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-car-maint',
@@ -17,12 +18,12 @@ export class CarMaintComponent implements OnInit {
   isDeleting = false;
   currentCar: Car;
   public isAdmin: boolean = false;
-  constructor(private router: Router, private appDataService: AppDataService, private authorizationUserService: AuthorizationUserService) {
+  constructor(private router: Router, private appDataService: AppDataService, private authorizationUserService: AuthorizationUserService, private cookieService: CookieService) {
     appDataService.getCars().subscribe((data) => {this.CarList = data; });
    }
 
    ngOnInit(){
-     if(this.authorizationUserService.role === 'admin'){
+     if(this.cookieService.get('role') === 'admin'){
        this.isAdmin = true
     }
   }

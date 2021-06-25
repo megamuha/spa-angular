@@ -6,6 +6,7 @@ import { UserApi } from '../users/user-api';
 import { SignInComponent } from '../users/sign-in/sign-in.component';
 import { isNgTemplate } from '@angular/compiler';
 import { AuthorizationUserService } from '../users/authorization-user-service';
+import { CookieService } from 'ngx-cookie-service';
 @Component({
   selector: 'icon-bar',
   templateUrl: './icon-bar.component.html',
@@ -15,15 +16,13 @@ export class IconBarComponent implements OnInit {
   showLoader!: boolean;
   @Input() showIcons: any;
   userInfo!: string;
-  constructor(public spaConfigService: SpaConfigService, public userApi: UserApi, private authorizationUserService: AuthorizationUserService) {
+  constructor(public spaConfigService: SpaConfigService, public userApi: UserApi, private authorizationUserService: AuthorizationUserService, private cookieService: CookieService) {
 
    }
 
   ngOnInit() {
     this.showLoader = false;
-    this.userInfo = this.authorizationUserService.name;
-    console.log(this.authorizationUserService.user);
-    console.log(this.authorizationUserService.name);
+    this.userInfo = this.cookieService.get('name');
   }
   signOut() {
     this.showLoader = true;

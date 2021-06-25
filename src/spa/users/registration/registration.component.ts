@@ -3,7 +3,6 @@ import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { User } from 'src/spa/services/user.interface';
 import { visibility } from '../../services/animations';
-import { AuthorizationUserService } from '../authorization-user-service';
 import { UserApi } from '../user-api';
 
 @Component({
@@ -16,7 +15,7 @@ export class RegistrationComponent implements OnInit {
   registering = false;
   hasAdded = false;
   formError?: string;
-  constructor(private router: Router, private userApi: UserApi, private authorizationUserService: AuthorizationUserService) { }
+  constructor(private router: Router, private userApi: UserApi) { }
 
   ngOnInit(): void {
   }

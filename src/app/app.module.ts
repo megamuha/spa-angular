@@ -22,6 +22,7 @@ import { ImagePanelComponent } from './panels/image-panel/image-panel.component'
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthorizationUserService } from 'src/spa/users/authorization-user-service';
+import { CookieService } from 'ngx-cookie-service';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,8 @@ import { AuthorizationUserService } from 'src/spa/users/authorization-user-servi
     AuthGuard,
     AppDataService,
     AuthorizationUserService,
-    AppData2Service
+    AppData2Service,
+    CookieService
   ],
   bootstrap: [AppComponent]
 })
