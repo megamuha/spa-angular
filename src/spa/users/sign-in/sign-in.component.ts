@@ -27,28 +27,25 @@ export class SignInComponent implements OnInit {
       this.submitting = true;
       this.formError = undefined;
       this.userApi.signIn!(signInForm.value.email, signInForm.value.password).subscribe((data) => {
-        //success
         var users = data;
         var currentUser: User = users.find((item: User) => item.email === signInForm.value.email && item.password === signInForm.value.password);
         
         this.authorizationUserService.setAuthorizedUser(currentUser);
-        this.authorizationUserService.getUserId();
-        this.authorizationUserService.getUserName();
-        this.authorizationUserService.getUserRole();
-        console.log(this.authorizationUserService.name);
-        console.log(this.authorizationUserService._id);
-        console.log(this.authorizationUserService.role);
+        
 
-        if (currentUser) { 
+
+        if (currentUser) {
+          this.authorizationUserService.getUserId();
+          this.authorizationUserService.getUserName();
+          this.authorizationUserService.getUserRole(); 
           this.router.navigate(['/authenticated']);
-
+          
         }        
         else {
           this.submitting = false;
           this.formError = "user not found";
         }
       },
-        // в случае ошибки
         (error) => {
           this.submitting = false;
           this.formError = error;

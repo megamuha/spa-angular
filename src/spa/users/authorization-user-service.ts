@@ -24,4 +24,7 @@ export class AuthorizationUserService {
     public getUserId(){
         this._id = this.user.id;
     }
+    public setGlobal(){
+
+    }
 }

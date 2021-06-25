@@ -14,6 +14,10 @@
             <input type='password' autocomplete="off" name='password' required ngModel #password='ngModel' placeholder="Пароль" class='form-control'>
             <div class="alert alert-danger" [hidden]='password.valid || password.pristine'>Введите пароль</div>
         </div>
+        <div class='form-group'>
+            <input type='role' autocomplete="off" name='role' required placeholder="Роль пользователя" ngModel #role='ngModel' class='form-control'>
+            <div class="alert alert-danger" [hidden]='role.valid || role.pristine'>Введите роль admin/user</div>
+        </div>
         <div class='alert alert-danger' *ngIf="formError">{{formError}}</div>
         <div *ngIf="!registering && !hasAdded">
             <button routerLink='/sign-in' class='btn btn-danger'>Назад</button>

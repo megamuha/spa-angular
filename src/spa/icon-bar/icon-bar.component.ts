@@ -16,11 +16,14 @@ export class IconBarComponent implements OnInit {
   @Input() showIcons: any;
   userInfo!: string;
   constructor(public spaConfigService: SpaConfigService, public userApi: UserApi, private authorizationUserService: AuthorizationUserService) {
+
    }
 
   ngOnInit() {
     this.showLoader = false;
     this.userInfo = this.authorizationUserService.name;
+    console.log(this.authorizationUserService.user);
+    console.log(this.authorizationUserService.name);
   }
   signOut() {
     this.showLoader = true;

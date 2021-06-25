@@ -7,6 +7,7 @@ import { UserApi } from "../../spa/users/user-api";
 import { User } from '../../spa/services/user.interface';
 
 
+
 @Injectable()
 export class UserService implements UserApi {
   isAuthenticated = false;
@@ -27,7 +28,7 @@ export class UserService implements UserApi {
   registerUser(registerForm: User) {
     return this.http.post(this.url, {
       name: registerForm.name, email: registerForm.email,
-      password: registerForm.password
+      password: registerForm.password, cars : [], role: registerForm.role
     });
   }
 }

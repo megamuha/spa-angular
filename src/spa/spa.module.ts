@@ -24,13 +24,14 @@ import { DynamicFormComponent } from './dynamicForms/dynamic-form/dynamic-form.c
 import { DynamicFieldComponent } from './dynamicForms/dynamic-field/dynamic-field.component';
 import { PanelComponent } from './panel/panel.component';
 
+
 @NgModule({
   imports: [
     CommonModule,
     BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
-    RouterModule,
+    RouterModule
   ],
   declarations: [
     SpaBodyComponent,
@@ -49,18 +50,18 @@ import { PanelComponent } from './panel/panel.component';
     RegistrationComponent,
     DynamicFormComponent,
     DynamicFieldComponent,
-    PanelComponent,
+    PanelComponent
   ],
   exports: [
     SpaBodyComponent,
     DynamicFormComponent,
     PanelComponent,
-    ScreenLargeDirective,
+    ScreenLargeDirective
   ],
   providers: [
     SpaConfigService,
     ScreenService,
-    MenuService,
+    MenuService
   ]
 })
 

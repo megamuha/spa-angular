@@ -7,16 +7,28 @@
       "price": 9500
     },
     {
-      "id": "3",
-      "name": "Mazda",
-      "model": "636",
-      "price": 5200
+      "id": 219,
+      "name": "Tayota",
+      "model": "RAV4",
+      "price": 10200
     },
     {
-      "id": "4",
+      "id": 385,
       "name": "Subaru",
-      "model": "Forester",
-      "price": 7600
+      "model": "WRX",
+      "price": 9800
+    },
+    {
+      "id": 419,
+      "name": "Ford",
+      "model": "Fusion",
+      "price": 10300
+    },
+    {
+      "id": 490,
+      "name": "Audi",
+      "model": "A6",
+      "price": 7800
     }
   ],
   "users": [
@@ -26,9 +38,7 @@
       "password": "123",
       "id": 1,
       "role": "admin",
-      "cars": [
-        {}
-      ]
+      "cars": []
     },
     {
       "name": "frdf",
@@ -42,8 +52,21 @@
           "name": "Subaru",
           "model": "Forester",
           "price": 7600
+        },
+        {
+          "id": "3",
+          "name": "Mazda",
+          "model": "636",
+          "price": 5200
         }
       ]
+    },
+    {
+      "name": "111",
+      "email": "111",
+      "password": "111",
+      "id": 3
     }
+    
   ]
 }
