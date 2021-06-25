@@ -7,7 +7,7 @@
             <div class="alert alert-danger" [hidden]='name.valid || name.pristine'>Введите ваше имя</div>
         </div>
         <div class='form-group'>
-            <input type='email' autocomplete="off" name='email' required placeholder="Email" ngModel #email='ngModel' class='form-control'>
+            <input type='email' pattern="[a-z0-9.%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" autocomplete="off" name='email' required placeholder="Email" ngModel #email='ngModel' class='form-control'>
             <div class="alert alert-danger" [hidden]='email.valid || email.pristine'>Введите email</div>
         </div>
         <div class='form-group'>
@@ -15,7 +15,7 @@
             <div class="alert alert-danger" [hidden]='password.valid || password.pristine'>Введите пароль</div>
         </div>
         <div class='form-group'>
-            <input type='role' autocomplete="off" name='role' required placeholder="Роль пользователя" ngModel #role='ngModel' class='form-control'>
+            <input type='role' pattern="^user$|^admin$" autocomplete="off" name='role' required placeholder="Роль пользователя" ngModel #role='ngModel' class='form-control'>
             <div class="alert alert-danger" [hidden]='role.valid || role.pristine'>Введите роль admin/user</div>
         </div>
         <div class='alert alert-danger' *ngIf="formError">{{formError}}</div>

@@ -33,17 +33,17 @@
   ],
   "users": [
     {
-      "name": "denuis",
-      "email": "123",
-      "password": "123",
+      "name": "admin1",
+      "email": "admin1@gmail.com",
+      "password": "admin1",
       "id": 1,
       "role": "admin",
       "cars": []
     },
     {
-      "name": "frdf",
-      "email": "321",
-      "password": "321",
+      "name": "user1",
+      "email": "user1@mail.ru",
+      "password": "user1",
       "id": 2,
       "role": "user",
       "cars": [
@@ -60,13 +60,6 @@
           "price": 5200
         }
       ]
-    },
-    {
-      "name": "111",
-      "email": "111",
-      "password": "111",
-      "id": 3
     }
-    
   ]
 }
